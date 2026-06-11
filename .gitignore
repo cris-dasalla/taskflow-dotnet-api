@@ -1,0 +1,23 @@
+# Build output
+bin/
+obj/
+out/
+
+# Rider / VS / VS Code
+.vs/
+.idea/
+*.user
+*.suo
+
+# SQLite dev database (created at runtime)
+*.db
+*.db-shm
+*.db-wal
+
+# Local env / secrets
+appsettings.*.local.json
+*.env
+
+# OS
+.DS_Store
+Thumbs.db
