@@ -52,7 +52,7 @@ dotnet run
 
 That's it — no database setup required. On first run the app creates a SQLite file, applies migrations, and seeds demo data.
 
-Then open the Swagger UI at the URL printed in the console (e.g. **http://localhost:5080**).
+Then open the Swagger UI at the URL printed in the console (by default **http://localhost:5020**).
 
 ### Demo login
 
@@ -129,7 +129,31 @@ The rest of the code is provider-agnostic.
 
 ## 📸 Screenshots
 
-> _Add a screenshot of the Swagger UI here once you run it (`docs/swagger.png`)._
+The API ships with an interactive Swagger UI served at the app root, with bearer-token auth wired in.
+
+**Swagger UI — every endpoint in one place**
+
+![Swagger UI overview](docs/01-swagger-overview.png)
+
+**JWT authentication — authorize once, call protected endpoints**
+
+![JWT authorize](docs/02-jwt-authorize.png)
+
+**Create a task — `201 Created` with the full resource (creator + assignee embedded)**
+
+![Create a task](docs/03-create-task.png)
+
+**List tasks — paginated results with rich metadata (`totalCount`, `totalPages`, `hasNext`/`hasPrevious`)**
+
+![List tasks](docs/04-list-tasks.png)
+
+**Filtering & search — combine `status`, `priority`, and free-text `search`**
+
+![Filtering and search](docs/05-filter-search.png)
+
+**Consistent error handling — RFC 7807 `ProblemDetails` on every failure**
+
+![Error handling](docs/06-error-handling.png)
 
 ---
 
