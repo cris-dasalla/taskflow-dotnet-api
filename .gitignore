@@ -21,3 +21,8 @@ appsettings.*.local.json
 # OS
 .DS_Store
 Thumbs.db
+
+# Python (automation/)
+__pycache__/
+*.pyc
+automation/report.json
