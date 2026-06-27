@@ -77,6 +77,18 @@ Separation of concerns, so each piece is small and testable:
 | [`__main__.py`](taskflow_qa/__main__.py) | **Orchestration** — CLI, run the pipeline, print a summary, write JSON, and set the exit code from a severity gate. |
 | [`seed.py`](taskflow_qa/seed.py) | Demo data (only runs with `--seed`; the audit never mutates data otherwise). |
 
+### Tests
+
+The QA rules are pure functions, so they're unit-tested offline (no network, no live API) —
+deterministic `now`, links not verified:
+
+```bash
+python -m unittest discover -s tests -v   # 8 tests, all green
+```
+
+The end-to-end validation is the severity **gate**: a non-zero exit code on high-severity
+findings, so a scheduled or CI run fails loudly when something is wrong.
+
 ### How auth, errors, and edge cases are handled
 - **Auth:** log in once for a JWT; attach it as a bearer token; if a request returns `401`
   mid-run, the client re-authenticates and retries exactly once.
